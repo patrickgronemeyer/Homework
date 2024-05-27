@@ -78,7 +78,7 @@ function listToppings(toppings) {
     const last = toppings.pop();
     return toppings.join(', ') + ', and ' + last;
 }
-This function takes an array of toppings and returns a string where the toppings are separated by commas, with "and" before the last topping. If there are no toppings provided, it defaults to "cheese".
+// This function takes an array of toppings and returns a string where the toppings are separated by commas, with "and" before the last topping. If there are no toppings provided, it defaults to "cheese".
 
 //Modify greetCustomer to use listToppings
 function greetCustomer() {
