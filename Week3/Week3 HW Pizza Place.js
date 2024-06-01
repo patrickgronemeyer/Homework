@@ -120,3 +120,225 @@ if (orderDetails) {
     servePizza(preparedPizza); // Serves the pizza
 }
 //This structured approach enhances the user interface of your pizza ordering functions by ensuring grammatically correct messages, handling cases with no toppings elegantly, and checking for invalid topping requests.
+
+
+// BASIC SOLUTION!!!!!!!
+// create an array of pizza toppings
+// const pizzaToppings = ["pepperoni", "sausage", "onions", "peppers"];
+
+// create a greetCustomer function
+// function greetCustomer() {
+
+  // create  a variable to hold the greeting
+  // let greeting = `Welcome to The Pizza House, our toppings are: `;
+
+  // use a for loop to iterate through the toppings
+  // for (let topping of pizzaToppings) {
+
+    // add each topping to our greeting message
+  //   greeting += `${topping}, `;
+  // }
+
+  // console log the greeting
+//   console.log(greeting);
+// }
+
+// call the greetCustomer function
+// greetCustomer();
+
+
+
+// create a getPizzaOrder function
+// function getPizzaOrder(size, crust, ...toppings) {
+
+// create a variable to hold the order using template literal format
+  // let order = `One ${size} ${crust} crust pizza with `;
+
+  // add each topping to order variable
+  // for (let topping of toppings) {
+  //   order += `${topping}, `;
+  // }
+
+  // console log the order
+  // console.log(`${order}. Coming up!`);
+
+  // return order variables in an array to be used later
+  // return [size, crust, toppings];
+
+}
+// call getPizzaOrder with parameters...
+
+// create a customerOrder variable using getPizzaOrder function that passes in arguments...
+// let customerOrder = getPizzaOrder(
+//   "large",
+//   "thin",
+//   "sausage",
+//   "onions",
+//   "peppers"
+);
+
+// create a preparePizza function
+// function preparePizza([orderSize, orderCrust, orderToppings]) {
+//   console.log("...your pizza is cooking...");
+
+  // return a pizza object containing size, crust, and toppings which will be passed as an argument to the servePizza function
+//   return {
+//     size: orderSize,
+//     crust: orderCrust,
+//     toppings: orderToppings
+//   };
+// }
+// let cookedPizza = preparePizza(customerOrder);
+
+
+// create a servePizza function
+// function servePizza(pizza) {
+
+  // create a variable to hold the order ready message using template literal format
+  // let orderReady = `Order up! Here's your ${pizza.size} ${pizza.crust} crust pizza with `;
+
+  // use a for of loop to iterate through the pizza toppings
+  // for (let topping of pizza.toppings) {
+
+    // add each topping to the order ready message
+  //   orderReady += `${topping}, `;
+  // }
+
+  // console log the order ready message
+//   console.log(`${orderReady}. Enjoy!`);
+//   return pizza;
+// }
+// servePizza(cookedPizza);
+
+
+// greetCustomer();
+// const myPizza = servePizza(
+//   preparePizza(getPizzaOrder("small", "thin", "mushrooms", "banana peppers"))
+// );
+// console.log(myPizza);
+
+// BONUS SOLUTIONS
+// #9
+// function addListElementsToString(string, list) {
+//   for (let i = 0; i < list.length; i++) {
+    // if only one topping ordered
+    // if (list.length === 1) {
+    //   string += `${list[i]}. `;
+    // } else if (i === list.length - 1) {
+      // if more than one topping ordered and current topping is last in list
+    //   string += `and ${list[i]}. `;
+    // } else {
+      // if more than one topping ordered and current topping is NOT last in array
+//       string += `${list[i]}, `;
+//     }
+//   }
+//   return string;
+// }
+
+// console.log(
+//   addListElementsToString("Here is my formatted Array: ", ["onions", "peppers"])
+// );
+
+// #10
+// function checkForToppings(toppings) {
+//   if (!toppings[0]) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// function getPizzaOrderAndCheckForPlain(size, crust, ...toppings) {
+//   if (checkForToppings(toppings)) {
+//     let order = `One ${size} ${crust} crust pizza with `;
+//     order = addListElementsToString(order, toppings);
+//     console.log(`${order}Right away!`);
+//     return [size, crust, toppings];
+//   }
+//   console.log(`One ${size} ${crust} crust cheese pizza, coming up!`);
+//   return [size, crust, toppings];
+// }
+// WITH TOPPINGS
+// getPizzaOrderAndCheckForPlain("small", "thin", "garlic");
+
+// WITHOUT TOPPINGS
+// getPizzaOrderAndCheckForPlain("medium", "thick");
+
+// #11
+// ordered toppings: pepperoni, batteries
+// available toppings: peppers, pepperoni
+// function checkOrderedToppings(orderedToppings, availableToppings) {
+//   for (let ordered of orderedToppings) {
+//     let toppingAvailable = false;
+//     for (let available of availableToppings) {
+//       if (ordered === available) {
+//         toppingAvailable = true;
+//       }
+//     }
+//     if (toppingAvailable) {
+//       continue;
+//     } else {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function getPizzaOrderAndCheckForToppingAvailability(size, crust, ...toppings) {
+//   if (checkForToppings(toppings)) {
+//     if (checkOrderedToppings(toppings, pizzaToppings)) {
+//       let order = `One ${size} ${crust} crust pizza with `;
+//       order = addListElementsToString(order, toppings);
+//       console.log(`${order}Right away!`);
+//       return [size, crust, toppings];
+//     }
+//     let wrongToppingMessage =
+//       "I'm sorry, one or more of the toppings you ordered is unavailable. Our toppings are: ";
+//     wrongToppingMessage = addListElementsToString(
+//       wrongToppingMessage,
+//       pizzaToppings
+//     );
+//     console.log(`${wrongToppingMessage}Please order again.`);
+//     return false;
+//   }
+//   console.log(`One ${size} ${crust} crust cheese pizza, coming up!`);
+//   return [size, crust, toppings];
+// }
+
+// AVAILABLE TOPPINGS
+// getPizzaOrderAndCheckForToppingAvailability(
+//   "large",
+//   "thin",
+//   "onions",
+//   "peppers"
+// );
+
+ // UNAVAILABLE TOPPINGS
+// getPizzaOrderAndCheckForToppingAvailability(
+//   "medium",
+//   "thick",
+//   "rock salt",
+//   "avocado toast"
+// );
+
+// function addListElementsToString_AllCases(string, list) {
+//   for (let i = 0; i < list.length; i++) {
+    // if only one topping ordered
+    // if (list.length === 1) {
+    //   string += `${list[i]}. `;
+    // } else if (list.length === 2 && !i) {
+      // ! this else if statement is the new part
+      // if 2 toppings ordered and current topping is first (index 0)
+    //   string += `${list[i]} `;
+    // } else if (i === list.length - 1) {
+      // if more than one topping ordered and current topping is last in list
+    //   string += `and ${list[i]}. `;
+    // } else {
+      // if more than two toppings ordered and current topping is NOT last in array
+//       string += `${list[i]}, `;
+//     }
+//   }
+//   return string;
+// }
+// console.log(addListElementsToString_AllCases("hello: ", ["one"]));
+// console.log(addListElementsToString_AllCases("hello: ", ["one", "two"]));
+// console.log(addListElementsToString_AllCases("hello: ", ["one", "one", "two"]));
